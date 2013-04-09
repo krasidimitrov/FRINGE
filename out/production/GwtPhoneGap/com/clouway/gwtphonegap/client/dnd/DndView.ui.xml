@@ -1,0 +1,12 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:dnd="urn:import:com.clouway.gwtphonegap.client.dnd">
+  <ui:style>
+
+  </ui:style>
+
+  <g:HTMLPanel ui:field="mainPanel">
+
+
+  </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,25 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+  <ui:style>
+    .drag {
+      background-color: #b0c4de;
+      width: 300px;
+      height: 300px;
+    }
+
+    .drop {
+      background-color: #db7093;
+      width: 300px;
+      height: 300px;
+    }
+  </ui:style>
+
+  <g:HTMLPanel>
+    <g:HTMLPanel styleName="{style.drag}" ui:field="firstPanel">
+      <g:Label ui:field="draggableLabel">DRAG ME</g:Label>
+    </g:HTMLPanel>
+    <g:HTMLPanel styleName="{style.drop}" ui:field="secondPanel">
+
+    </g:HTMLPanel>
+  </g:HTMLPanel>
+</ui:UiBinder>

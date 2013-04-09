@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="GwtPhoneGap:war exploded">
+    <output-path>$PROJECT_DIR$/web</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="GwtPhoneGap/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="GwtPhoneGap" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="AppEngine API" />
+          <element id="file-copy" path="$GWT_HOME$/gwt-servlet.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/gwtphonegap-1.8.1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/gwt-gae-channel-0.4-alpha.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/gwtquery-1.2.0.jar" />
+        </element>
+      </element>
+      <element id="gwt-compiler-output" facet="GwtPhoneGap/gwt/GWT" />
+    </root>
+  </artifact>
+</component>

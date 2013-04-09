@@ -1,0 +1,42 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+  <ui:style>
+    .commentBoxStyle {
+      width: 300px;
+      margin-bottom: 15px;
+    }
+
+    .commentBoxStyle:HOVER {
+      /*background-color: #dddedc;*/
+    }
+
+    .ownerNameStyle {
+      font-size: 14px;
+      float: left;
+      color: #3282dc;
+      /*font-weight: bold;*/
+    }
+
+    .dateStampStyle {
+      color: #999;
+      font-size: 11px;
+      float: right;
+    }
+
+    .contentStyle {
+      margin-top: 3px;
+      font-family: Times New Romans;
+      font-size: 14px;
+      display: inline-block;
+      width: 300px;
+      word-wrap: break-word;
+    }
+  </ui:style>
+
+  <g:HTMLPanel styleName="{style.commentBoxStyle}">
+    <g:Label ui:field="ownerName" styleName="{style.ownerNameStyle}"/>
+    <g:Label ui:field="dateStamp" styleName="{style.dateStampStyle}"/>
+    <g:Label ui:field="content" styleName="{style.contentStyle}"/>
+  </g:HTMLPanel>
+</ui:UiBinder>

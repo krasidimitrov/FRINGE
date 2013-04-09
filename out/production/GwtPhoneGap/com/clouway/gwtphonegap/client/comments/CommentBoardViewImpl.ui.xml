@@ -1,0 +1,52 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+  <ui:style field="style" type="com.clouway.gwtphonegap.client.comments.CommentBoardViewImpl.Style">
+    .visibeBeforeWriteBoxStyle {
+      display: block;
+      font-size: 13px;
+      line-height: 1.4;
+      font: normal 13px arial, sans-serif;
+      width: 300px;
+      color: #999;
+      max-width: 300px;
+    }
+
+    .hiddenBeforeWriteBoxStyle {
+      display: none;
+    }
+
+    .visibleWritePanel {
+      display: block;
+    }
+
+    .hiddenWritePanel {
+      display: none;
+    }
+
+    .writeBoxStyle {
+      resize: none;
+      width: 300px;
+      display: block;
+    }
+
+    .postButtonStyle {
+    }
+  </ui:style>
+
+  <g:HTMLPanel ui:field="commentBoardPanel">
+   <g:HTMLPanel ui:field="commentList" />
+
+
+     <g:HTMLPanel ui:field="commentWriteBox">
+
+       <g:HTMLPanel ui:field="writeCommentPanel" styleName="{style.hiddenWritePanel}">
+        <g:TextArea ui:field="writeCommentBox" styleName="{style.writeBoxStyle}"></g:TextArea>
+        <g:Button ui:field="postButton" styleName="{style.postButtonStyle}">Post comment</g:Button>
+        <g:Button ui:field="cancelButton">Cancel</g:Button>
+       </g:HTMLPanel>
+
+     <g:TextBox ui:field="beforeWriteTextBox" styleName="{style.visibeBeforeWriteBoxStyle}">Add a comment...</g:TextBox>
+    </g:HTMLPanel>
+
+  </g:HTMLPanel>
+</ui:UiBinder>

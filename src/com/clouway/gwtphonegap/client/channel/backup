@@ -1,0 +1,139 @@
+package com.clouway.gwtphonegap.client;
+
+import com.clouway.gwtphonegap.client.channel.Channel;
+import com.clouway.gwtphonegap.client.channel.ChannelFactory;
+import com.clouway.gwtphonegap.client.channel.SocketListener;
+import com.google.gwt.appengine.channel.client.SocketError;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.web.bindery.event.shared.EventBus;
+import com.googlecode.gwtphonegap.client.PhoneGap;
+import com.googlecode.gwtphonegap.client.notification.ConfirmCallback;
+import com.googlecode.gwtphonegap.client.notification.NotificationBrowserImpl;
+import com.googlecode.gwtphonegap.client.notification.NotificationMobileImpl;
+
+/**
+ * @author Krasimir Dimitrov (kpackapgo@gmail.com, krasimir.dimitrov@clouway.com)
+ */
+public class SampleViewImpl extends Composite{
+  private MessageServiceAsync rpcService;
+  private EventBus eventBus;
+  private String token;
+  private final PhoneGap phoneGap;
+
+  interface SampleViewImplUiBinder extends UiBinder<HTMLPanel, SampleViewImpl> {
+  }
+
+  private static SampleViewImplUiBinder ourUiBinder = GWT.create(SampleViewImplUiBinder.class);
+
+
+  @UiField
+  Button sendButton;
+  @UiField
+  Button tokenButton;
+  @UiField
+  Label messageLabel;
+  @UiField
+  TextBox writeBox;
+  @UiField
+  Label tokenLabel;
+//  private NotificationBrowserImpl notificationBrowser;
+  private NotificationMobileImpl notificationMobile;
+
+
+  public SampleViewImpl(PhoneGap phoneGap,MessageServiceAsync rpcService, EventBus eventBus) {
+    this.phoneGap = phoneGap;
+
+    initWidget(ourUiBinder.createAndBindUi(this));
+    this.rpcService = rpcService;
+    this.eventBus = eventBus;
+//    notificationBrowser = phoneGap.getNotification().;
+//    notificationMobile = phoneGap.;
+  }
+
+  public void setPresenter() {
+//    Channel channel = ChannelFactory.createChannel("abc");
+//    channel.open(new SocketListener() {
+//      @Override
+//      public void onMessage(String message) {
+//        Window.alert("HAHAH");
+//        Window.alert(message);
+//      }
+//      @Override
+//      public void onOpen() {
+//        Window.alert("OPEN");
+//      }
+//    });        void
+  }
+
+  @UiHandler("sendButton")
+  public void onSendButtonClicked(ClickEvent event){
+    rpcService.sendMessage(writeBox.getText(),new AsyncCallback<Void>() {
+      @Override
+      public void onFailure(Throwable caught) {
+        Window.alert("MessageFailed");
+      }
+
+      @Override
+      public void onSuccess(Void result) {
+      }
+    });
+  }
+
+  @UiHandler("tokenButton")
+  public void onTokenButtonClicked(ClickEvent event){
+
+    rpcService.getToken(new AsyncCallback<String>() {
+      @Override
+      public void onFailure(Throwable caught) {
+        messageLabel.setText("connection failed");
+      }
+
+      @Override
+      public void onSuccess(String result) {
+        tokenLabel.setText("Your id is: "+result);
+        Channel channel = ChannelFactory.createChannel(result);
+        com.google.gwt.appengine.channel.client.ChannelFactory.createChannel(result, new com.google.gwt.appengine.channel.client.ChannelFactory.ChannelCreatedCallback() {
+          @Override
+          public void onChannelCreated(com.google.gwt.appengine.channel.client.Channel channel) {
+            channel.open(new com.google.gwt.appengine.channel.client.SocketListener() {
+              @Override
+              public void onOpen() {
+                messageLabel.setText("OPENED");
+              }
+
+
+              @Override
+              public void onMessage(String message) {
+                messageLabel.setText(message + "555");
+              }
+
+              @Override
+              public void onError(SocketError error) {
+                Window.alert("Error " + error.getDescription());
+              }
+
+              @Override
+              public void onClose() {
+                Window.alert("Channel closed");
+              }
+            });
+
+          }
+        });
+
+      }
+    });
+  }
+
+}

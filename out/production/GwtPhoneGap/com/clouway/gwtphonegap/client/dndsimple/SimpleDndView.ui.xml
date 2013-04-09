@@ -1,0 +1,18 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+  <ui:style>
+    .teamPanel{
+      width: 200px;
+      height: 200px;
+      background-color: #7fffd4;
+      margin-bottom: 30px;
+    }
+  </ui:style>
+
+  <g:HTMLPanel>
+    <g:HTMLPanel ui:field="panelOne" styleName="{style.teamPanel}">
+      <g:Label ui:field="employee">Employee</g:Label>
+    </g:HTMLPanel>
+    <g:HTMLPanel ui:field="panelTwo" styleName="{style.teamPanel}"></g:HTMLPanel>
+  </g:HTMLPanel>
+</ui:UiBinder>

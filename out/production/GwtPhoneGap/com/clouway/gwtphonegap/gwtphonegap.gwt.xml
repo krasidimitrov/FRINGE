@@ -1,0 +1,19 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to="gwtphonegap">
+
+  <!-- Inherit the core Web Toolkit stuff.                  -->
+  <inherits name='com.google.gwt.user.User'/>
+  <inherits name="com.googlecode.gwtphonegap.PhoneGap"/>
+  <inherits name="com.google.gwt.appengine.channel.Channel"/>
+  <inherits name="com.google.gwt.query.Query"/>
+  <inherits name="gwtquery.plugins.draggable.Draggable"/>
+  <inherits name="gwtquery.plugins.droppable.Droppable"/>
+
+  <!-- Specify the app entry point class.                   -->
+  <entry-point class='com.clouway.gwtphonegap.client.GwtPhoneGap'/>
+
+
+  <servlet path='/MessageService' class='com.clouway.gwtphonegap.server.MessageServiceImpl'/>
+
+</module>

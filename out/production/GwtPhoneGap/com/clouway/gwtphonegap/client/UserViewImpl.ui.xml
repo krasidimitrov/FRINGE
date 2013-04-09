@@ -1,0 +1,19 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+  <ui:style>
+    .main{
+      border: #8a2be2;
+      border-width: 1px;
+      border-style: solid;
+      width: 150px;
+      height: 40px;
+      background-color: #d3d3d3;
+    }
+  </ui:style>
+
+  <g:HTMLPanel styleName="{style.main}">
+   <g:Label ui:field="name"/>
+   <g:Label ui:field="address"/>
+  </g:HTMLPanel>
+</ui:UiBinder>
