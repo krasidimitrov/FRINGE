@@ -7,6 +7,8 @@ import com.clouway.gwtphonegap.client.dndsimple.SimpleDndView;
 import com.clouway.gwtphonegap.client.flipcss.FlipView;
 import com.clouway.gwtphonegap.client.printing.PrintingView;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -44,18 +46,18 @@ public class GwtPhoneGap implements EntryPoint {
 
 
 
-//    SampleViewImpl view = new SampleViewImpl((MessageServiceAsync)GWT.create(MessageService.class),new SimpleEventBus());
+//    SampleViewImpl view = new SampleViewImpl((MessageServiceAsync) GWT.create(MessageService.class),new SimpleEventBus());
 //    RootPanel.get().add(view);
 
 //    DragViewImpl view = new DragViewImpl();
 //    RootPanel.get().add(view);
 
-//    StandardDragViewImpl view = new StandardDragViewImpl();
+    StandardDragViewImpl view = new StandardDragViewImpl();
 //    FlipView view = new FlipView();
 //    DndView view = new DndView();
 //    SimpleDndView view = new SimpleDndView();
 //    CommentBoardViewImpl view = new CommentBoardViewImpl();
-    PrintingView view = new PrintingView();
+//    PrintingView view = new PrintingView();
     RootPanel.get().add(view);
   }
 }

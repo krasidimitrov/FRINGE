@@ -1,7 +1,7 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
-  <ui:style>
+  <ui:style field="style" type="com.clouway.gwtphonegap.client.UserViewImpl.Style">
     .main{
       border: #8a2be2;
       border-width: 1px;
@@ -10,10 +10,71 @@
       height: 40px;
       background-color: #d3d3d3;
     }
+
+    .frontPanel{
+      background-color: #f08080;
+      width: 150px;
+      height: 40px;
+      position: absolute;
+      z-index: 2;
+
+      -webkit-backface-visibility:hidden;
+
+      /*position: absolute;*/
+      top: 0;
+      left: 0;
+    }
+
+    .backPanel{
+      background-color: #e6e6fa;
+      width: 150px;
+      height: 40px;
+      position: absolute;
+      -webkit-transform:rotateY(180deg);
+
+      -webkit-backface-visibility:hidden;
+
+      /*position: absolute;*/
+      top: 0;
+      left: 0;
+    }
+
+
+    .flip-container {
+      -webkit-perspective: 1000;
+      margin-bottom: 10px;
+    }
+
+    .flipStyle{
+      -webkit-transition: 0.6s;
+      -webkit-transform-style: preserve-3d;
+
+      position: relative;
+      width: 150px;
+      height: 40px;
+    }
+
+    .flipStyle2{
+      -webkit-transform:rotateY(180deg);
+    }
+
+    .editButtonStyle{
+      margin-left: 55px;
+      margin-top: 10px;
+    }
+
+
   </ui:style>
 
-  <g:HTMLPanel styleName="{style.main}">
-   <g:Label ui:field="name"/>
-   <g:Label ui:field="address"/>
+  <g:HTMLPanel styleName="{style.flip-container}">
+    <g:HTMLPanel ui:field="flipPanel" styleName="{style.flipStyle}">
+       <g:HTMLPanel styleName="{style.frontPanel}">
+         <g:Label ui:field="name"/>
+         <g:Label ui:field="address"/>
+       </g:HTMLPanel>
+      <g:HTMLPanel styleName="{style.backPanel}">
+        <g:Button ui:field="editButton" styleName="{style.editButtonStyle}">edit</g:Button>
+      </g:HTMLPanel>
+    </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

@@ -15,7 +15,7 @@
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
-          <sdk-home-path>$GAE_HOME$</sdk-home-path>
+          <sdk-home-path>$USER_HOME$/development/appengine-java-sdk-1.7.0</sdk-home-path>
         </configuration>
       </facet>
     </facet>

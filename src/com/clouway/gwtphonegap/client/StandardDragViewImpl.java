@@ -1,18 +1,15 @@
 package com.clouway.gwtphonegap.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.DragOverEvent;
-import com.google.gwt.event.dom.client.DragOverHandler;
-import com.google.gwt.event.dom.client.DragStartEvent;
-import com.google.gwt.event.dom.client.DragStartHandler;
-import com.google.gwt.event.dom.client.DropEvent;
-import com.google.gwt.event.dom.client.DropHandler;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -43,6 +40,14 @@ public class StandardDragViewImpl extends Composite {
     makeDraggable(userView2);
     setUpDropArea(firstPanel);
     setUpDropArea(secondPanel);
+
+    RootPanel.get().addDomHandler(new ContextMenuHandler() {
+      @Override
+      public void onContextMenu(ContextMenuEvent event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, ContextMenuEvent.getType());
   }
 
 

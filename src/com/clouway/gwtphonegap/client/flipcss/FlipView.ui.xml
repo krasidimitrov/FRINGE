@@ -10,7 +10,7 @@
 
       -webkit-backface-visibility:hidden;
 
-      position: absolute;
+      /*position: absolute;*/
       top: 0;
       left: 0;
     }
@@ -24,7 +24,7 @@
 
       -webkit-backface-visibility:hidden;
 
-      position: absolute;
+      /*position: absolute;*/
       top: 0;
       left: 0;
     }
@@ -44,6 +44,7 @@
 
     .flip-container {
       -webkit-perspective: 1000;
+      margin-left: 100px;
     }
 
 
